@@ -17,16 +17,16 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>Nginx+Ngrok共用80端口 | Bin丨不求俯仰天地，但求无愧于心</title>
-  <meta name="description" content="Debian Linux 修改时区UTC时区切换到CST时区123echo &quot;export TZ&#x3D;&#39;Asia&#x2F;Shanghai&#39;&quot; &gt;&gt; &#x2F;etc&#x2F;profilecat &#x2F;etc&#x2F;profile | grep TZ  &#x2F;&#x2F;查看是否写入成功 1cat &#x2F;etc&#x2F;profile | grep TZ  &#x2F;&#x2F;编译使其生效 1source &#x2F;etc&#x2F;profile  &#x2F;&#x2F;查看当前时区 1date">
+  <title>Debian Linux 修改时区 | Bin丨不求俯仰天地，但求无愧于心</title>
+  <meta name="description" content="UTC时区切换到CST时区123echo &quot;export TZ&#x3D;&#39;Asia&#x2F;Shanghai&#39;&quot; &gt;&gt; &#x2F;etc&#x2F;profilecat &#x2F;etc&#x2F;profile | grep TZ  &#x2F;&#x2F;查看是否写入成功 1cat &#x2F;etc&#x2F;profile | grep TZ  &#x2F;&#x2F;编译使其生效 1source &#x2F;etc&#x2F;profile  &#x2F;&#x2F;查看当前时区 1date -R">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Nginx+Ngrok共用80端口">
+<meta property="og:title" content="Debian Linux 修改时区">
 <meta property="og:url" content="https://cpolo.cn/2019/04/23/%E4%BF%AE%E6%94%B9%E6%97%B6%E5%8C%BA/index.html">
 <meta property="og:site_name" content="Bin">
-<meta property="og:description" content="Debian Linux 修改时区UTC时区切换到CST时区123echo &quot;export TZ&#x3D;&#39;Asia&#x2F;Shanghai&#39;&quot; &gt;&gt; &#x2F;etc&#x2F;profilecat &#x2F;etc&#x2F;profile | grep TZ  &#x2F;&#x2F;查看是否写入成功 1cat &#x2F;etc&#x2F;profile | grep TZ  &#x2F;&#x2F;编译使其生效 1source &#x2F;etc&#x2F;profile  &#x2F;&#x2F;查看当前时区 1date">
+<meta property="og:description" content="UTC时区切换到CST时区123echo &quot;export TZ&#x3D;&#39;Asia&#x2F;Shanghai&#39;&quot; &gt;&gt; &#x2F;etc&#x2F;profilecat &#x2F;etc&#x2F;profile | grep TZ  &#x2F;&#x2F;查看是否写入成功 1cat &#x2F;etc&#x2F;profile | grep TZ  &#x2F;&#x2F;编译使其生效 1source &#x2F;etc&#x2F;profile  &#x2F;&#x2F;查看当前时区 1date -R">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2019-04-23T02:16:33.000Z">
-<meta property="article:modified_time" content="2020-01-27T10:28:05.694Z">
+<meta property="article:modified_time" content="2020-01-27T10:37:45.973Z">
 <meta property="article:author" content="Bin">
 <meta property="article:tag" content="Linux">
 <meta property="article:tag" content="Debian">
@@ -282,7 +282,7 @@
                 <a class="category-link" href="/categories/Debian/">Debian</a><i class="icon icon-angle-right"></i><a class="category-link" href="/categories/Linux/">Linux</a>
               </p>
               <p class="item-title">
-                <a href="/2019/04/23/%E4%BF%AE%E6%94%B9%E6%97%B6%E5%8C%BA/" class="title">Nginx+Ngrok共用80端口</a>
+                <a href="/2019/04/23/%E4%BF%AE%E6%94%B9%E6%97%B6%E5%8C%BA/" class="title">Debian Linux 修改时区</a>
               </p>
               <p class="item-date">
                 <time datetime="2019-04-23T02:16:33.000Z" itemprop="datePublished">2019-04-23</time>
@@ -325,7 +325,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Nginx+Ngrok共用80端口
+      Debian Linux 修改时区
     </h1>
   
 
@@ -354,7 +354,7 @@
 
 	<span class="article-read hidden-xs">
     	<i class="icon icon-eye-fill" aria-hidden="true"></i>
-    	<span id="/2019/04/23/%E4%BF%AE%E6%94%B9%E6%97%B6%E5%8C%BA/" class="leancloud_visitors"  data-flag-title="Nginx+Ngrok共用80端口">
+    	<span id="/2019/04/23/%E4%BF%AE%E6%94%B9%E6%97%B6%E5%8C%BA/" class="leancloud_visitors"  data-flag-title="Debian Linux 修改时区">
 			<span class="leancloud-visitors-count">0</span>
 		</span>
     </span>
@@ -365,7 +365,7 @@
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h1 id="Debian-Linux-修改时区"><a href="#Debian-Linux-修改时区" class="headerlink" title="Debian Linux 修改时区"></a>Debian Linux 修改时区</h1><h4 id="UTC时区切换到CST时区"><a href="#UTC时区切换到CST时区" class="headerlink" title="UTC时区切换到CST时区"></a>UTC时区切换到CST时区</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">echo "export TZ='Asia/Shanghai'" &gt;&gt; /etc/profile</span><br><span class="line"></span><br><span class="line">cat /etc/profile | grep TZ</span><br></pre></td></tr></table></figure>
+        <h4 id="UTC时区切换到CST时区"><a href="#UTC时区切换到CST时区" class="headerlink" title="UTC时区切换到CST时区"></a>UTC时区切换到CST时区</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">echo "export TZ='Asia/Shanghai'" &gt;&gt; /etc/profile</span><br><span class="line"></span><br><span class="line">cat /etc/profile | grep TZ</span><br></pre></td></tr></table></figure>
 
 <p>//查看是否写入成功</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/profile | grep TZ</span><br></pre></td></tr></table></figure>
@@ -384,7 +384,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="https://cpolo.cn/2019/04/23/%E4%BF%AE%E6%94%B9%E6%97%B6%E5%8C%BA/" title="Nginx+Ngrok共用80端口" target="_blank" rel="external">https://cpolo.cn/2019/04/23/%E4%BF%AE%E6%94%B9%E6%97%B6%E5%8C%BA/</a>
+      <a href="https://cpolo.cn/2019/04/23/%E4%BF%AE%E6%94%B9%E6%97%B6%E5%8C%BA/" title="Debian Linux 修改时区" target="_blank" rel="external">https://cpolo.cn/2019/04/23/%E4%BF%AE%E6%94%B9%E6%97%B6%E5%8C%BA/</a>
     </li>
     
     <li class="post-copyright-license">
