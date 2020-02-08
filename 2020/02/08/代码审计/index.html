@@ -26,7 +26,7 @@
 <meta property="og:description" content="笔记 顾名思义就是检查源代码中的安全缺陷，检查程序源代码是否存在安全隐患，或者有编码不规范的地方，通过自动化工具或者人工审查的方式，对程序源代码逐条进行检查和分析，发现这些源代码缺陷引发的安全漏洞，并提供代码修订措施和建议。  通用审计思路 根据敏感函数回溯参数传递过程  优点 只需要搜索相应敏感关键字，即可快速地挖掘想要的漏洞，具有可定向挖掘和高效、高质量的优点  缺点 由于没有通读代码，对程序">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-02-08T08:16:30.000Z">
-<meta property="article:modified_time" content="2020-02-08T13:52:13.025Z">
+<meta property="article:modified_time" content="2020-02-08T15:11:22.237Z">
 <meta property="article:author" content="Bin">
 <meta property="article:tag" content="WEB安全">
 <meta property="article:tag" content="代码审计">
@@ -459,11 +459,11 @@
 </li>
 <li><p>文件包含函数</p>
 <ul>
-<li><pre><code class="merma">graph LR
-A[文件包含] --&gt;B(include())
-A --&gt; C(require())
-A --&gt; D(include_once())
-A --&gt; E(require_once())</code></pre>
+<li><pre><code class="mermaid">graph LR
+A[文件包含] --&gt;B(&quot;include()&quot;)
+A --&gt; C(&quot;require()&quot;)
+A --&gt; D(&quot;include_once()&quot;)
+A --&gt; E(&quot;require_once()&quot;)</code></pre>
 </li>
 </ul>
 </li>
