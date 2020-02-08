@@ -17,26 +17,23 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>重建Windows引导的一次操作 | Bin丨不求俯仰天地，但求无愧于心</title>
-  <meta name="description" content="由于电脑Windows和Linux系统都不在一个硬盘上，所以每个硬盘都有一个EFI分区。本着有一个引导分区就够了的原则就把装了Windows那块盘的ESP分区给删了，打算直接使用装Linux这块盘上的EFI分区来装所有系统的引导文件，遂重建Win引导。 Action准备： 装有PE环境的U盘一只 计算机一台  启动PE系统因为现在已经把原来装有Windows引导的整个分区给删了，但是我另一块硬盘上">
-<meta property="og:type" content="article">
-<meta property="og:title" content="重建Windows引导的一次操作">
-<meta property="og:url" content="https://cpolo.cn/2019/04/04/%E9%87%8D%E5%BB%BAWindows%E5%BC%95%E5%AF%BC%E7%9A%84%E4%B8%80%E6%AC%A1%E6%93%8D%E4%BD%9C/index.html">
+  <title>归档 | Bin丨不求俯仰天地，但求无愧于心</title>
+  <meta name="description" content="分享日常小姿势">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Bin">
+<meta property="og:url" content="https://cpolo.cn/archives/page/2/index.html">
 <meta property="og:site_name" content="Bin">
-<meta property="og:description" content="由于电脑Windows和Linux系统都不在一个硬盘上，所以每个硬盘都有一个EFI分区。本着有一个引导分区就够了的原则就把装了Windows那块盘的ESP分区给删了，打算直接使用装Linux这块盘上的EFI分区来装所有系统的引导文件，遂重建Win引导。 Action准备： 装有PE环境的U盘一只 计算机一台  启动PE系统因为现在已经把原来装有Windows引导的整个分区给删了，但是我另一块硬盘上">
+<meta property="og:description" content="分享日常小姿势">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://image.cpolo.cn/%E9%87%8D%E5%BB%BAWindows%E5%BC%95%E5%AF%BC%E7%9A%84%E4%B8%80%E6%AC%A1%E6%93%8D%E4%BD%9C/clover.jpg">
-<meta property="article:published_time" content="2019-04-04T09:24:35.000Z">
-<meta property="article:modified_time" content="2020-01-27T13:41:09.505Z">
 <meta property="article:author" content="Bin">
-<meta property="article:tag" content="Windows">
-<meta property="article:tag" content="UEFI">
-<meta property="article:tag" content="Clover">
-<meta property="article:tag" content="引导">
+<meta property="article:tag" content="Bin">
+<meta property="article:tag" content="cpolo">
+<meta property="article:tag" content="Bin的博客">
+<meta property="article:tag" content="Blog">
+<meta property="article:tag" content="渗透">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://image.cpolo.cn/%E9%87%8D%E5%BB%BAWindows%E5%BC%95%E5%AF%BC%E7%9A%84%E4%B8%80%E6%AC%A1%E6%93%8D%E4%BD%9C/clover.jpg">
   <!-- Canonical links -->
-  <link rel="canonical" href="https://cpolo.cn/2019/04/04/%E9%87%8D%E5%BB%BAWindows%E5%BC%95%E5%AF%BC%E7%9A%84%E4%B8%80%E6%AC%A1%E6%93%8D%E4%BD%9C/index.html">
+  <link rel="canonical" href="https://cpolo.cn/archives/page/2/index.html">
   
     <link rel="alternate" href="/atom.xml" title="Bin" type="application/atom+xml">
   
@@ -320,189 +317,74 @@
   
   
 <main class="main" role="main">
-  <div class="content">
-  <article id="post-重建Windows引导的一次操作" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  	<article class="content article article-archives article-type-list" itemscope="">
+	    <header class="article-header">
+	      <h1 itemprop="title">归档</h1>
+	      <p class="text-muted">共 1 篇文章</p>
+	    </header>
+	    <div class="article-body">
+	      
+  
+  
     
-    <div class="article-header">
+    
       
-        
-  
-    <h1 class="article-title" itemprop="name">
-      重建Windows引导的一次操作
-    </h1>
-  
-
       
-      <div class="article-meta">
-        <span class="article-date">
-    <i class="icon icon-calendar-check"></i>
-	<a href="/2019/04/04/%E9%87%8D%E5%BB%BAWindows%E5%BC%95%E5%AF%BC%E7%9A%84%E4%B8%80%E6%AC%A1%E6%93%8D%E4%BD%9C/" class="article-date">
-	  <time datetime="2019-04-04T09:24:35.000Z" itemprop="datePublished">2019-04-04</time>
-	</a>
-</span>
-        
-        
-  <span class="article-tag">
-    <i class="icon icon-tags"></i>
-	<a class="article-tag-link" href="/tags/Clover/" rel="tag">Clover</a>, <a class="article-tag-link" href="/tags/UEFI/" rel="tag">UEFI</a>, <a class="article-tag-link" href="/tags/Windows/" rel="tag">Windows</a>, <a class="article-tag-link" href="/tags/%E5%BC%95%E5%AF%BC/" rel="tag">引导</a>
-  </span>
-
-
-        
-
-	<span class="article-read hidden-xs">
-    	<i class="icon icon-eye-fill" aria-hidden="true"></i>
-    	<span id="/2019/04/04/%E9%87%8D%E5%BB%BAWindows%E5%BC%95%E5%AF%BC%E7%9A%84%E4%B8%80%E6%AC%A1%E6%93%8D%E4%BD%9C/" class="leancloud_visitors"  data-flag-title="重建Windows引导的一次操作">
-			<span class="leancloud-visitors-count">0</span>
-		</span>
-    </span>
-
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/04/04/%E9%87%8D%E5%BB%BAWindows%E5%BC%95%E5%AF%BC%E7%9A%84%E4%B8%80%E6%AC%A1%E6%93%8D%E4%BD%9C/#comments" class="article-comment-link">评论</a></span>
-        
-      </div>
-    </div>
-    <div class="article-entry marked-body" itemprop="articleBody">
-      
-        <p>由于电脑Windows和Linux系统都不在一个硬盘上，所以每个硬盘都有一个EFI分区。本着有一个引导分区就够了的原则就把装了Windows那块盘的ESP分区给删了，打算直接使用装Linux这块盘上的EFI分区来装所有系统的引导文件，遂重建Win引导。</p>
-<h2 id="Action"><a href="#Action" class="headerlink" title="Action"></a>Action</h2><h3 id="准备："><a href="#准备：" class="headerlink" title="准备："></a>准备：</h3><ul>
-<li>装有PE环境的U盘一只</li>
-<li>计算机一台</li>
-</ul>
-<h3 id="启动PE系统"><a href="#启动PE系统" class="headerlink" title="启动PE系统"></a>启动PE系统</h3><p>因为现在已经把原来装有Windows引导的整个分区给删了，但是我另一块硬盘上还有一个EFI分区，所以不涉及到需要新建一个ESP(EFI系统分区)的操作，如果需要可以直接用DG专业工具或傲梅工具来新建ESP</p>
-<p>现在我们需要用到的仅仅是PE的CMD来进行下一步的操作，利用Win+R键的组合来快速启动CMD，启动后输入如下命令</p>
-<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bcdboot G:\Windows -s C: -f uefi -l zh-cn</span><br></pre></td></tr></table></figure>
-<p>解释一下上述bcdboot使用到的各个参数的具体含义</p>
-<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">G:\<span class="title">Windows</span>      系统安装目录，我的系统是在<span class="title">G</span>盘，打开我的电脑查看你电脑的系统是安装在那个盘，就输入相应的盘符和目录</span></span><br><span class="line"><span class="function">-<span class="title">s</span> <span class="title">C</span>:                   指定<span class="title">EFI</span>分区所在磁盘，我的<span class="title">EFI</span>分区的盘符是<span class="title">C</span></span></span><br><span class="line"><span class="function">-<span class="title">f</span> <span class="title">ntfs</span>         指定启动方式为<span class="title">uefi</span></span></span><br><span class="line"><span class="function">-<span class="title">l</span> <span class="title">zh</span>-<span class="title">cn</span>                指定<span class="title">uefi</span>启动界面的语言为<span class="title">zh</span>-<span class="title">cn</span>（简体中文）</span></span><br></pre></td></tr></table></figure>
-<p>执行成功之后会提示你建立引导成功，然后我们再打开C盘查看目录结构，会发现多了如下两个目录，这就代表你成功的重建了Windows的引导</p>
-<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">C:/<span class="title">EFI</span>/<span class="title">boot</span>/</span></span><br><span class="line"><span class="function"><span class="title">C</span>:/<span class="title">EFI</span>/<span class="title">microsoft</span>/</span></span><br></pre></td></tr></table></figure>
-<h3 id="重启电脑"><a href="#重启电脑" class="headerlink" title="重启电脑"></a>重启电脑</h3><p><img title='Clover' src='https://image.cpolo.cn/重建Windows引导的一次操作/clover.jpg' width='500px' /><br /><br><b>哈哈，发现熟悉Windows启动项再次回来了</b></p>
-
-      
-    </div>
-    <div class="article-footer">
-      <blockquote class="mt-2x">
-  <ul class="post-copyright list-unstyled">
-    
-    <li class="post-copyright-link hidden-xs">
-      <strong>本文链接：</strong>
-      <a href="https://cpolo.cn/2019/04/04/%E9%87%8D%E5%BB%BAWindows%E5%BC%95%E5%AF%BC%E7%9A%84%E4%B8%80%E6%AC%A1%E6%93%8D%E4%BD%9C/" title="重建Windows引导的一次操作" target="_blank" rel="external">https://cpolo.cn/2019/04/04/%E9%87%8D%E5%BB%BAWindows%E5%BC%95%E5%AF%BC%E7%9A%84%E4%B8%80%E6%AC%A1%E6%93%8D%E4%BD%9C/</a>
-    </li>
-    
-    <li class="post-copyright-license">
-      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
-    </li>
-  </ul>
-</blockquote>
-
-
-<div class="panel panel-default panel-badger">
-  <div class="panel-body">
-    <figure class="media">
-      <div class="media-left">
-        <a href="https://cpolo.cn" target="_blank" class="img-burn thumb-sm visible-lg">
-          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
-        </a>
-      </div>
-      <div class="media-body">
-        <h3 class="media-heading"><a href="https://cpolo.cn" target="_blank"><span class="text-dark">Bin</span><small class="ml-1x">不求俯仰天地，但求无愧于心</small></a></h3>
-        <div>不求俯仰天地，但求无愧于心</div>
-      </div>
-    </figure>
-  </div>
-</div>
-
-
-    </div>
-  </article>
-  
-    
-  <section id="comments">
-  	
-      <div id="vcomments"></div>
-    
-  </section>
-
-
-  
-</div>
-
-  <nav class="bar bar-footer clearfix" data-stick-bottom>
-  <div class="bar-inner">
-  
-  <ul class="pager pull-left">
-    
-    <li class="prev">
-      <a href="/2019/04/21/Nginx-Ngrok%E5%85%B1%E7%94%A880%E7%AB%AF%E5%8F%A3/" title="Nginx+Ngrok共用80端口"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
-    </li>
-    
-    
-    <li class="next">
-      <a href="/2019/01/09/kali-linux%E5%AE%89%E8%A3%85%E6%90%9C%E7%8B%97%E8%BE%93%E5%85%A5%E6%B3%95/" title="kali linux安装搜狗输入法"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
-    </li>
-    
-    
-  </ul>
-  
-  
-  <!-- Button trigger modal -->
-  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
-  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
-    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
-  </div> -->
-  
-  
-  <div class="bar-right">
-    
-    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
-    
-  </div>
-  </div>
-</nav>
-  
-<!-- Modal -->
-<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content donate">
-      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-      <div class="modal-body">
-        <div class="donate-box">
-          <div class="donate-head">
-            <p>感谢您的支持，我会继续努力的!</p>
-          </div>
-          <div class="tab-content">
-            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
-              <div class="donate-payimg">
-                <img src="/images/donate/alipayimg.png" alt="扫码支持" title="扫一扫" />
-              </div>
-              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
-              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
-            </div>
-            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
-              <div class="donate-payimg">
-                <img src="/images/donate/wechatpayimg.png" alt="扫码支持" title="扫一扫" />
-              </div>
-              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
-              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
-            </div>
-          </div>
-          <div class="donate-footer">
-            <ul class="nav nav-tabs nav-justified" role="tablist">
-              <li role="presentation" class="active">
-                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
-              </li>
-              <li role="presentation" class="">
-                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
-              </li>
-            </ul>
-          </div>
+      <section class="panel panel-default b-no">
+        <div class="panel-heading" role="tab">
+          <h3 class="panel-title">
+            <a data-toggle="collapse" href="#collapse2019" aria-expanded="true">
+              <i class="icon icon-calendar-plus text-active"></i><i class="icon icon-calendar-minus text"></i>
+              2019
+            </a>
+            <!-- <a href="/archives/2019" class="archive-year">2019</a> -->
+          </h3>
         </div>
-      </div>
-    </div>
-  </div>
-</div>
+        <div id="collapse2019" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading2019">
+        <div class="panel-body">
+          <div class="collection">
+    
+    
+<a href="/2019/01/01/2019-%E5%8F%88%E6%98%AF%E4%B8%80%E5%B9%B4/" class="collection-item" target="_blank" itemprop="url">
+  <time datetime="2019-01-01T11:06:25.000Z" itemprop="datePublished">2019-01-01</time>
+  <span>&nbsp;&nbsp;&nbsp;</span> 2019,又是一年
+</a>
 
 
+  
+  
+    </div></div></div></section>
+  
 
+	    </div>
+  	</article>
+  	
+    
+    <nav class="bar bar-footer clearfix" data-stick-bottom>
+        <div class="bar-inner">
+        <ul class="pager pull-left">
+            
+            <li class="prev">
+                <a href="/archives/">
+                    <i class="icon icon-angle-left"></i>
+                    上一页
+                </a>
+            </li>
+            
+            
+            <li class="next disabled">
+                <a href="javascript:;">
+                    下一页
+                    <i class="icon icon-angle-right"></i>                    
+                </a>
+            </li>
+            
+        </ul>
+        <div class="total-article bar-right">Page 2 of 2</div>
+        </div>
+    </nav>
+    
+ 	
 </main>
 
   <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
@@ -563,37 +445,6 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
 
 
 
-
-   
-
-
-
-
-   
-    
-  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/valine"></script>
-  <script type="text/javascript">
-  var GUEST = ['nick', 'mail', 'link'];
-  var meta = 'nick,mail,link';
-  meta = meta.split(',').filter(function(item) {
-    return GUEST.indexOf(item) > -1;
-  });
-  new Valine({
-    el: '#vcomments',
-    verify: true,
-    notify: false,
-    appId: 'QOx1gpBSAIcjeJXwM2F2kxiF-gzGzoHsz',
-    appKey: 'DgCrTgx62bC1DnFtjJJ1WsdN',
-    placeholder: 'Just go go',
-    avatar: 'mm',
-    meta: meta,
-    pageSize: '10' || 10,
-    visitor: true
-  });
-  </script>
-
-     
 
 
 

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://cpolo.cn/"/>
-  <updated>2020-02-08T07:39:26.125Z</updated>
+  <updated>2020-02-08T13:21:20.389Z</updated>
   <id>https://cpolo.cn/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>代码审计</title>
+    <link href="https://cpolo.cn/2020/02/08/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/"/>
+    <id>https://cpolo.cn/2020/02/08/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/</id>
+    <published>2020-02-08T08:16:30.000Z</published>
+    <updated>2020-02-08T13:21:20.389Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="笔记"><a href="#笔记" class="headerlink" title="笔记"></a>笔记</h3><blockquote><p>顾名思义就是检查<a href="https://baike.baidu.com/item/源代码/3969" target="_blank" rel="noopener">源代码</a>中的安全缺陷，检查程序源代码是否存在安全隐患，或者有编码不规范的地方，通过自动化工具或者人工审查的方式，对程序源代码逐条进行检查和分析，发现这些源代码缺陷引发的安全漏洞，并提供代码修订措施和建议。</p></blockquote><h3 id="通用审计思路"><a href="#通用审计思路" class="headerlink" title="通用审计思路"></a>通用审计思路</h3><ul><li><p>根据敏感函数回溯参数传递过程</p><ul><li><p>优点</p><p>只需要搜索相应敏感关键字，即可快速地挖掘想要的漏洞，具有可定向挖掘和高效、高质量的优点</p></li><li><p>缺点</p><p>由于没有通读代码，对程序的整体框架了解不够深入，在挖掘漏洞时定位利用点会话费一点时间，另外对逻辑漏洞会覆盖不到</p></li></ul></li><li><p>查找可控变量，正向追踪变量传递过程</p></li><li><p>寻找敏感功能点，通读功能点代码</p><ul><li>几种经常出现漏洞的功能点<ul><li>文件上传功能</li><li>文件管理功能</li><li>登录认证 功能</li><li>找回密码功能</li></ul></li></ul></li><li><p>直接通读全文代码</p><ul><li>流程<ul><li>查看网站逻辑结构</li><li>审计关键文件代码</li><li>审计配置文件</li><li>审计如index.php入口文件</li><li>审计其它功能入口文件</li></ul></li><li>优点<ul><li>更好的了解程序的架构以及业务逻辑，能够挖掘到更多，更高质量的逻辑漏洞</li></ul></li><li>缺点<ul><li>话费的时间比较多，新手用这种方式比较吃力</li></ul></li></ul></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;笔记&quot;&gt;&lt;a href=&quot;#笔记&quot; class=&quot;headerlink&quot; title=&quot;笔记&quot;&gt;&lt;/a&gt;笔记&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;顾名思义就是检查&lt;a href=&quot;https://baike.baidu.com/item/源代码/3969&quot; t
+      
+    
+    </summary>
+    
+    
+      <category term="WEB安全" scheme="https://cpolo.cn/categories/WEB%E5%AE%89%E5%85%A8/"/>
+    
+      <category term="代码审计，审计方法" scheme="https://cpolo.cn/categories/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1%EF%BC%8C%E5%AE%A1%E8%AE%A1%E6%96%B9%E6%B3%95/"/>
+    
+    
+      <category term="WEB安全" scheme="https://cpolo.cn/tags/WEB%E5%AE%89%E5%85%A8/"/>
+    
+      <category term="代码审计" scheme="https://cpolo.cn/tags/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/"/>
+    
+  </entry>
   
   <entry>
     <title>hexo升级</title>
