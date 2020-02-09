@@ -24,7 +24,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="Ubuntu搭建VSFTPD">
 <meta property="og:url" content="https://cpolo.cn/2020/01/27/%E6%90%AD%E5%BB%BAVSFTPD/index.html">
-<meta property="og:site_name" content="Bin">
+<meta property="og:site_name" content="Bin&#39;s Blog">
 <meta property="og:description" content="Ubuntu 安装VSFTPD安装vsftpd1sudo apt install -y vsftpd  配置vsftpd12345678910111213141516171819sudo vim &#x2F;etc&#x2F;vsftpd.conflisten&#x3D;YESlisten_ipv6&#x3D;NOanonymous_enable&#x3D;NOlocal_enable&#x3D;YESwrite_enable&#x3D;YESlocal_umask">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-01-27T10:31:43.000Z">
@@ -47,7 +47,7 @@
   };
 </script>
 
-  <title>Ubuntu搭建VSFTPD | Bin</title>
+  <title>Ubuntu搭建VSFTPD | Bin's Blog</title>
   
 
 
@@ -87,7 +87,7 @@
   </style>
 </noscript>
 
-<link rel="alternate" href="/atom.xml" title="Bin" type="application/atom+xml">
+<link rel="alternate" href="/atom.xml" title="Bin's Blog" type="application/atom+xml">
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -101,7 +101,7 @@
     <div>
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Bin</span>
+        <span class="site-title">Bin's Blog</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -125,6 +125,16 @@
         <li class="menu-item menu-item-home">
 
     <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
 
   </li>
         <li class="menu-item menu-item-archives">
@@ -163,11 +173,11 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://image.cpolo.cn/avatar/avatar.jpg">
       <meta itemprop="name" content="Bin">
-      <meta itemprop="description" content="分享日常小姿势">
+      <meta itemprop="description" content="Share日常小姿势">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Bin">
+      <meta itemprop="name" content="Bin's Blog">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
@@ -329,7 +339,7 @@
     <img class="site-author-image" itemprop="image" alt="Bin"
       src="https://image.cpolo.cn/avatar/avatar.jpg">
   <p class="site-author-name" itemprop="name">Bin</p>
-  <div class="site-description" itemprop="description">分享日常小姿势</div>
+  <div class="site-description" itemprop="description">Share日常小姿势</div>
 </div>
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
@@ -342,11 +352,13 @@
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
+          
         <span class="site-state-item-count">10</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
+          
         <span class="site-state-item-count">26</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
@@ -429,6 +441,19 @@
 
 
 
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme    : 'neutral',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
 
 
   

@@ -20,12 +20,12 @@
     var CONFIG = {"hostname":"cpolo.cn","root":"/","scheme":"Pisces","version":"7.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="分享日常小姿势">
+  <meta name="description" content="Share日常小姿势">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Bin">
+<meta property="og:title" content="Bin&#39;s Blog">
 <meta property="og:url" content="https://cpolo.cn/categories/Nginx/%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/index.html">
-<meta property="og:site_name" content="Bin">
-<meta property="og:description" content="分享日常小姿势">
+<meta property="og:site_name" content="Bin&#39;s Blog">
+<meta property="og:description" content="Share日常小姿势">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:author" content="Bin">
 <meta property="article:tag" content="Bin">
@@ -47,7 +47,7 @@
   };
 </script>
 
-  <title>分类: 反向代理 | Bin</title>
+  <title>分类: 反向代理 | Bin's Blog</title>
   
 
 
@@ -87,7 +87,7 @@
   </style>
 </noscript>
 
-<link rel="alternate" href="/atom.xml" title="Bin" type="application/atom+xml">
+<link rel="alternate" href="/atom.xml" title="Bin's Blog" type="application/atom+xml">
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -101,7 +101,7 @@
     <div>
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Bin</span>
+        <span class="site-title">Bin's Blog</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -125,6 +125,16 @@
         <li class="menu-item menu-item-home">
 
     <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
 
   </li>
         <li class="menu-item menu-item-archives">
@@ -255,7 +265,7 @@
     <img class="site-author-image" itemprop="image" alt="Bin"
       src="https://image.cpolo.cn/avatar/avatar.jpg">
   <p class="site-author-name" itemprop="name">Bin</p>
-  <div class="site-description" itemprop="description">分享日常小姿势</div>
+  <div class="site-description" itemprop="description">Share日常小姿势</div>
 </div>
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
@@ -268,11 +278,13 @@
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
+          
         <span class="site-state-item-count">10</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
+          
         <span class="site-state-item-count">26</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
@@ -355,6 +367,19 @@
 
 
 
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme    : 'neutral',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
 
 
   

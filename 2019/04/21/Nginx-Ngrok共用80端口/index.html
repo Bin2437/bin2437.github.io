@@ -24,7 +24,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="Nginx+Ngrok共用80端口">
 <meta property="og:url" content="https://cpolo.cn/2019/04/21/Nginx-Ngrok%E5%85%B1%E7%94%A880%E7%AB%AF%E5%8F%A3/index.html">
-<meta property="og:site_name" content="Bin">
+<meta property="og:site_name" content="Bin&#39;s Blog">
 <meta property="og:description" content="大多数情况下，我们的服务器不会只有一个ngrok服务，并且80端口通常都是给Nginx等服务准备的！在一系列的需求下，Ngrok和Nginx就有共用80端口的必要 解决姿势我们的服务器一般都有着公网和内网之分，所以网卡也有两个，所以我们让Nginx监听公网80端口，Ngrok监听内网80端口就完美的解决了这个问题 准备 带有公网ip的服务器一台 Nginx服务 Ngork服务  开始 查看自己服务">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://image.cpolo.cn/Nginx+Ngrok%E5%85%B1%E7%94%A880%E7%AB%AF%E5%8F%A3/ifconfig%20-a.png">
@@ -52,7 +52,7 @@
   };
 </script>
 
-  <title>Nginx+Ngrok共用80端口 | Bin</title>
+  <title>Nginx+Ngrok共用80端口 | Bin's Blog</title>
   
 
 
@@ -92,7 +92,7 @@
   </style>
 </noscript>
 
-<link rel="alternate" href="/atom.xml" title="Bin" type="application/atom+xml">
+<link rel="alternate" href="/atom.xml" title="Bin's Blog" type="application/atom+xml">
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -106,7 +106,7 @@
     <div>
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Bin</span>
+        <span class="site-title">Bin's Blog</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -130,6 +130,16 @@
         <li class="menu-item menu-item-home">
 
     <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
 
   </li>
         <li class="menu-item menu-item-archives">
@@ -168,11 +178,11 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://image.cpolo.cn/avatar/avatar.jpg">
       <meta itemprop="name" content="Bin">
-      <meta itemprop="description" content="分享日常小姿势">
+      <meta itemprop="description" content="Share日常小姿势">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Bin">
+      <meta itemprop="name" content="Bin's Blog">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
@@ -373,7 +383,7 @@
     <img class="site-author-image" itemprop="image" alt="Bin"
       src="https://image.cpolo.cn/avatar/avatar.jpg">
   <p class="site-author-name" itemprop="name">Bin</p>
-  <div class="site-description" itemprop="description">分享日常小姿势</div>
+  <div class="site-description" itemprop="description">Share日常小姿势</div>
 </div>
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
@@ -386,11 +396,13 @@
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
+          
         <span class="site-state-item-count">10</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
+          
         <span class="site-state-item-count">26</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
@@ -473,6 +485,19 @@
 
 
 
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme    : 'neutral',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
 
 
   
