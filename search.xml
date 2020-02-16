@@ -22,15 +22,15 @@
 </ul>
 <p>拿sqli-labs这个靶场来讲解吧，Less-1</p>
 <p>靶场机票<a href="https://github.com/Audi-1/sqli-labs" target="_blank" rel="noopener"靶场链接"">sqli-labs</a></p>
-<h5 id="寻找可疑注入点，并测试"><a href="#寻找可疑注入点，并测试" class="headerlink" title="寻找可疑注入点，并测试"></a>寻找可疑注入点，并测试</h5><p><img src="https://image.cpolo.cn/SQL%E6%B3%A8%E5%85%A5-%E8%81%94%E5%90%88%E6%B3%A8%E5%85%A5%2F1.png" alt="寻找可疑注入点并测试"></p>
+<h5 id="寻找可疑注入点，并测试"><a href="#寻找可疑注入点，并测试" class="headerlink" title="寻找可疑注入点，并测试"></a>寻找可疑注入点，并测试</h5><p><img src="https://image.cpolo.cn/SQL%E6%B3%A8%E5%85%A5-%E8%81%94%E5%90%88%E6%B3%A8%E5%85%A5/1.png" alt="寻找可疑注入点并测试"></p>
 <p>因为是靶场可以看见是有相应的提示的，如图框起来的就是提示。让我们输入一个ID作为参数，这个就不多说了。注入点就是这个ID，但是我们可以看见页面也没什么可以输入的地方，经过测试就是在URL自己构造添加一个ID的参数，并给它赋值就可以get到我们数据库的信息</p>
-<p><img src="https://image.cpolo.cn/SQL%E6%B3%A8%E5%85%A5-%E8%81%94%E5%90%88%E6%B3%A8%E5%85%A5%2F2.png" alt="寻找可疑注入点并测试"></p>
+<p><img src="https://image.cpolo.cn/SQL%E6%B3%A8%E5%85%A5-%E8%81%94%E5%90%88%E6%B3%A8%E5%85%A5/2.png" alt="寻找可疑注入点并测试"></p>
 <p>看见有数据从页面上显示了，我们再对id这个参数的值进行一番构造。进行测试，看其是否有可能存在注入，在参数id的值后边加上常用的闭合</p>
 <p>id=1’</p>
 <p>id=1”</p>
 <p>发现如果闭合为单引号他就会报错，如果是双引号则会正常显示，那么这基本就确认这个url是存在sql注入漏洞的</p>
-<p><img src="https://image.cpolo.cn/SQL%E6%B3%A8%E5%85%A5-%E8%81%94%E5%90%88%E6%B3%A8%E5%85%A5%2F3.png" alt="寻找可疑注入点并测试"></p>
-<p><img src="https://image.cpolo.cn/SQL%E6%B3%A8%E5%85%A5-%E8%81%94%E5%90%88%E6%B3%A8%E5%85%A5%2F4.png" alt="寻找可疑注入点并测试"></p>
+<p><img src="https://image.cpolo.cn/SQL%E6%B3%A8%E5%85%A5-%E8%81%94%E5%90%88%E6%B3%A8%E5%85%A5/3.png" alt="寻找可疑注入点并测试"></p>
+<p><img src="https://image.cpolo.cn/SQL%E6%B3%A8%E5%85%A5-%E8%81%94%E5%90%88%E6%B3%A8%E5%85%A5/4.png" alt="寻找可疑注入点并测试"></p>
 <h5 id="判断注入点闭合类型"><a href="#判断注入点闭合类型" class="headerlink" title="判断注入点闭合类型"></a>判断注入点闭合类型</h5><p>这个靶场基本囊括了我们常用的引号闭合</p>
 <ul>
 <li>单引号</li>
@@ -65,14 +65,14 @@
 <p>使用 <strong>ORDER Y num</strong>，num是一个数值，用来指定我们从查询字段的第几列进行排序。可以是1也可以是100，通常我们使用1是肯定不会报错的</p>
 <p>聪明的人可能已经明白了，我们是使用报错来帮助我们确定我们是否是判断对了查询的字段数，我们一般使用<strong>二分法</strong>，一步步确定查询字段数</p>
 <p>试试100！ORDER BY 100</p>
-<p><img src="https://image.cpolo.cn/SQL%E6%B3%A8%E5%85%A5-%E8%81%94%E5%90%88%E6%B3%A8%E5%85%A5%2F5.png" alt="寻找可疑注入点并测试"></p>
+<p><img src="https://image.cpolo.cn/SQL%E6%B3%A8%E5%85%A5-%E8%81%94%E5%90%88%E6%B3%A8%E5%85%A5/5.png" alt="判断查询字段数量"></p>
 <p>看上图可以发现，诶，果然有报错！Unknown column ‘100’ in ‘order clause’ ！未知的列，有细心的同学又发现了，<strong>–+</strong>怎么语句后边跟了这三个符号，这也涉及到SQL语言的注释，毕竟sql也是一门语言，<strong>通用的结构化查询语言</strong></p>
 <h6 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h6><p>SQL语法中，注释分单行注释和多行注释。我们用到的当然就是单行注释了</p>
 <ul>
 <li><p>单行注释</p>
 <hr>
 <ul>
-<li>注意，这里是 <strong>–空格</strong> “– “ <ul>
+<li>注意，这里是 <strong>–空格</strong> “– “ ，是<strong>有两个减号，两个横杠</strong>！<ul>
 <li>#</li>
 </ul>
 </li>
