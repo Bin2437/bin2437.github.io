@@ -140,6 +140,37 @@
 <p>我们现在构造的语句就是这样的</p>
 <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> <span class="keyword">users</span> <span class="keyword">WHERE</span> <span class="keyword">id</span>=<span class="string">'-1'</span> <span class="keyword">UNION</span> <span class="keyword">SELECT</span> <span class="number">1</span>,<span class="keyword">GROUP_CONCAT</span>(schema_name),<span class="number">3</span> <span class="keyword">FROM</span> information_schema.schemata <span class="comment">--+' LIMIT 0,1</span></span><br></pre></td></tr></table></figure>
 
+<p>可以看见，我们使用聚合函数把schema_name这列的数据给拼接了起来，并且是通过information_schema这个表查出来的</p>
+<h6 id="information-schema"><a href="#information-schema" class="headerlink" title="information_schema"></a>information_schema</h6><p>到了这儿有不得不说这个information_schema，这是在大于5.0版本的mysql服务器中才有的一张数据库表。其实说它是一张表并不准确，准确的来说它实际上是一个视图，而不是一个基本表！它存储了关于MySQL服务器所维护的所有其他数据库的信息。如数据库名，数据库的表，表栏的数据类型与访问权限等。</p>
+<p>我们需要重视的主要就是其中的这些表，以及表中相应的字段</p>
+<ul>
+<li>schemata<ul>
+<li>schema_name<ul>
+<li>存储所有数据库的字段名</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>tables<ul>
+<li>table_name<ul>
+<li>存储所有数据表的字段名</li>
+</ul>
+</li>
+<li>table_schema<ul>
+<li>存储表归属与哪个数据库的字段名</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>columns<ul>
+<li>column_name<ul>
+<li>存储表中所有列的字段名</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>有了这些信息，我们就可以更进一步的来准确获取到我们想要的东西！</p>
 ]]></content>
       <tags>
         <tag>WEB安全</tag>

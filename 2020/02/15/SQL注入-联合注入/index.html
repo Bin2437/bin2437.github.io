@@ -36,7 +36,7 @@
 <meta property="og:image" content="https://image.cpolo.cn/SQL%E6%B3%A8%E5%85%A5-%E8%81%94%E5%90%88%E6%B3%A8%E5%85%A5/7.png">
 <meta property="og:image" content="https://image.cpolo.cn/SQL%E6%B3%A8%E5%85%A5-%E8%81%94%E5%90%88%E6%B3%A8%E5%85%A5/8.png">
 <meta property="article:published_time" content="2020-02-15T07:55:02.000Z">
-<meta property="article:modified_time" content="2020-02-16T15:56:31.297Z">
+<meta property="article:modified_time" content="2020-02-16T16:09:39.760Z">
 <meta property="article:author" content="Bin">
 <meta property="article:tag" content="WEB安全">
 <meta property="article:tag" content="SQL注入">
@@ -234,7 +234,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-16 23:56:31" itemprop="dateModified" datetime="2020-02-16T23:56:31+08:00">2020-02-16</time>
+                <time title="修改时间：2020-02-17 00:09:39" itemprop="dateModified" datetime="2020-02-17T00:09:39+08:00">2020-02-17</time>
               </span>
 
           
@@ -257,7 +257,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>3.4k</span>
+              <span>3.8k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -413,6 +413,37 @@
 <p>我们现在构造的语句就是这样的</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> <span class="keyword">users</span> <span class="keyword">WHERE</span> <span class="keyword">id</span>=<span class="string">'-1'</span> <span class="keyword">UNION</span> <span class="keyword">SELECT</span> <span class="number">1</span>,<span class="keyword">GROUP_CONCAT</span>(schema_name),<span class="number">3</span> <span class="keyword">FROM</span> information_schema.schemata <span class="comment">--+' LIMIT 0,1</span></span><br></pre></td></tr></table></figure>
 
+<p>可以看见，我们使用聚合函数把schema_name这列的数据给拼接了起来，并且是通过information_schema这个表查出来的</p>
+<h6 id="information-schema"><a href="#information-schema" class="headerlink" title="information_schema"></a>information_schema</h6><p>到了这儿有不得不说这个information_schema，这是在大于5.0版本的mysql服务器中才有的一张数据库表。其实说它是一张表并不准确，准确的来说它实际上是一个视图，而不是一个基本表！它存储了关于MySQL服务器所维护的所有其他数据库的信息。如数据库名，数据库的表，表栏的数据类型与访问权限等。</p>
+<p>我们需要重视的主要就是其中的这些表，以及表中相应的字段</p>
+<ul>
+<li>schemata<ul>
+<li>schema_name<ul>
+<li>存储所有数据库的字段名</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>tables<ul>
+<li>table_name<ul>
+<li>存储所有数据表的字段名</li>
+</ul>
+</li>
+<li>table_schema<ul>
+<li>存储表归属与哪个数据库的字段名</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>columns<ul>
+<li>column_name<ul>
+<li>存储表中所有列的字段名</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>有了这些信息，我们就可以更进一步的来准确获取到我们想要的东西！</p>
 
     </div>
 
@@ -536,7 +567,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#笔记"><span class="nav-number">1.</span> <span class="nav-text">笔记</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#手工注入步骤"><span class="nav-number">2.</span> <span class="nav-text">手工注入步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#概览"><span class="nav-number">2.1.</span> <span class="nav-text">概览</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#寻找可疑注入点，并测试"><span class="nav-number">2.2.</span> <span class="nav-text">寻找可疑注入点，并测试</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#判断注入点闭合类型"><span class="nav-number">2.3.</span> <span class="nav-text">判断注入点闭合类型</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#确定查询字段数量"><span class="nav-number">2.4.</span> <span class="nav-text">确定查询字段数量</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#ORDER-BY-语句"><span class="nav-number">2.4.1.</span> <span class="nav-text">ORDER BY 语句</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#注释"><span class="nav-number">2.4.2.</span> <span class="nav-text">注释</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#查看数据显示位置"><span class="nav-number">2.5.</span> <span class="nav-text">查看数据显示位置</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#SQL-UNION-操作符"><span class="nav-number">2.5.1.</span> <span class="nav-text">SQL UNION 操作符</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#在对应显示位获取当前数据库版本，数据库名，当前连接用户名信息"><span class="nav-number">2.6.</span> <span class="nav-text">在对应显示位获取当前数据库版本，数据库名，当前连接用户名信息</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#主要函数"><span class="nav-number">2.6.1.</span> <span class="nav-text">主要函数</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#获取全部数据库名"><span class="nav-number">2.7.</span> <span class="nav-text">获取全部数据库名</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#tips："><span class="nav-number">2.7.1.</span> <span class="nav-text">tips：</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#常用函数"><span class="nav-number">2.8.</span> <span class="nav-text">常用函数</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#笔记"><span class="nav-number">1.</span> <span class="nav-text">笔记</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#手工注入步骤"><span class="nav-number">2.</span> <span class="nav-text">手工注入步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#概览"><span class="nav-number">2.1.</span> <span class="nav-text">概览</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#寻找可疑注入点，并测试"><span class="nav-number">2.2.</span> <span class="nav-text">寻找可疑注入点，并测试</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#判断注入点闭合类型"><span class="nav-number">2.3.</span> <span class="nav-text">判断注入点闭合类型</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#确定查询字段数量"><span class="nav-number">2.4.</span> <span class="nav-text">确定查询字段数量</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#ORDER-BY-语句"><span class="nav-number">2.4.1.</span> <span class="nav-text">ORDER BY 语句</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#注释"><span class="nav-number">2.4.2.</span> <span class="nav-text">注释</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#查看数据显示位置"><span class="nav-number">2.5.</span> <span class="nav-text">查看数据显示位置</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#SQL-UNION-操作符"><span class="nav-number">2.5.1.</span> <span class="nav-text">SQL UNION 操作符</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#在对应显示位获取当前数据库版本，数据库名，当前连接用户名信息"><span class="nav-number">2.6.</span> <span class="nav-text">在对应显示位获取当前数据库版本，数据库名，当前连接用户名信息</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#主要函数"><span class="nav-number">2.6.1.</span> <span class="nav-text">主要函数</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#获取全部数据库名"><span class="nav-number">2.7.</span> <span class="nav-text">获取全部数据库名</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#tips："><span class="nav-number">2.7.1.</span> <span class="nav-text">tips：</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#常用函数"><span class="nav-number">2.8.</span> <span class="nav-text">常用函数</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#information-schema"><span class="nav-number">2.8.1.</span> <span class="nav-text">information_schema</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
