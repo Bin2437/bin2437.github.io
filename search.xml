@@ -71,18 +71,18 @@
 <h6 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h6><p>SQL语法中，注释分单行注释和多行注释。我们用到的当然就是单行注释了</p>
 <ul>
 <li><p>单行注释</p>
-<ul>
-<li><pre><code class="SQL">1. <span class="comment">-- </span>
-这里是"<span class="comment">-- "是两条横杠加一个空格</span>
-
-2. <span class="comment">#</span>
-然后就是这个<span class="comment">#</span>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">- 多行注释</span><br><span class="line"></span><br><span class="line">  &#96;&#96;&#96;SQL</span><br><span class="line">&#x2F;*</span><br><span class="line">  这是多行注释</span><br><span class="line">*&#x2F;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">1. <span class="comment">-- </span></span><br><span class="line">  "<span class="comment">-- "这里是两条横杠加一个空格</span></span><br><span class="line">2. <span class="comment">#</span></span><br><span class="line">  这就是一口井</span><br></pre></td></tr></table></figure>
 
 
-</code></pre>
+
 </li>
 </ul>
+<ul>
+<li><p>多行注释</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">  这是多行注释</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+
+
 </li>
 </ul>
 <p>但是为什么我们这里使用了–+呢，这又涉及到浏览器url编码的问题，总之一句话，浏览器默认对url进行编码时候会吧加号“+”变成空格“ ”，所以我们使用“–+”就相当于“– ”</p>
