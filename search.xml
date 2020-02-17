@@ -72,11 +72,8 @@
 <ul>
 <li><p>单行注释</p>
 <hr>
-<ul>
-<li>注意，这里是 <strong>–空格</strong> “– “ ，是<strong>有两个减号，两个横杠</strong>！<ul>
+<pre><code>- 注意，这里是 **--空格** &quot;-- &quot; ，是**有两个减号，两个横杠**！</code></pre><ul>
 <li>#</li>
-</ul>
-</li>
 </ul>
 </li>
 <li><p>多行注释</p>
