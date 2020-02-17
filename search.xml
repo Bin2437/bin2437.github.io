@@ -120,8 +120,8 @@
 <p>那我们就把2号位和3号位替换成database()和version()试试！我靠，出来了</p>
 <p><img src="https://image.cpolo.cn/SQL%E6%B3%A8%E5%85%A5-%E8%81%94%E5%90%88%E6%B3%A8%E5%85%A5/8.png-cpolo.cn" alt="查看数据显示位置"></p>
 <p>可以看见在相应的显示位打印出来了数据库名，还有数据库服务器版本。</p>
-<h5 id="获取全部数据库名"><a href="#获取全部数据库名" class="headerlink" title="获取全部数据库名"></a>获取全部数据库名</h5><h6 id="tips："><a href="#tips：" class="headerlink" title="tips："></a>tips：</h6><p>其实这一步也可以省略，但是并不建议这样做。因为可能在那个数据库中存在的数据库并不仅仅只有当前网站的数据库，可能这个站还存在旁站等等，如果可以的话，这样收集到的信息会更全面</p>
-<h5 id="常用函数"><a href="#常用函数" class="headerlink" title="常用函数"></a>常用函数</h5><p>因为我们的显示位置一次只能显示一条数据，但是我们又想一次性的获取到更多数据就需要这些<strong>聚合函数</strong>来帮我们实现了</p>
+<h5 id="获取全部数据库名"><a href="#获取全部数据库名" class="headerlink" title="获取全部数据库名"></a>获取全部数据库名</h5><h6 id="tips"><a href="#tips" class="headerlink" title="tips"></a>tips</h6><p>其实这一步也可以省略，但是并不建议这样做。因为可能在那个数据库中存在的数据库并不仅仅只有当前网站的数据库，可能这个站还存在旁站等等，如果可以的话，这样收集到的信息会更全面</p>
+<h6 id="常用函数"><a href="#常用函数" class="headerlink" title="常用函数"></a>常用函数</h6><p>因为我们的显示位置一次只能显示一条数据，但是我们又想一次性的获取到更多数据就需要这些<strong>聚合函数</strong>来帮我们实现了</p>
 <ul>
 <li><p>concat()</p>
 <ul>
